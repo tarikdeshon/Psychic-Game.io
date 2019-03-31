@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+ 
+</head>
+<body>
+        <div id="game">
+                <h1> The Psychic Game </h1>
+                <p>Guess what letter I'm thinking of!</p>
+                <p>Wins:</p>
+                <p>Losses:</p>
+                <p>Guesses Left:</p>
+                <p>Your Guesses so far:</p>
+            </div>
+        
+            <script src="game.js" type="text/javascript">
+              
+              //variables to track
+                var computerChoices = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+                var wins = 0;
+                var losses = 0;
+                var numGuess = 9;
+                var userChoices = [];
+
+               
+                document.onkeyup = function(event) {
+                    var userChoices = event.key;
+                    var computerChoices = computerChoices[Math.floor(Math.random()* computerChoices.length)];
+                    var userOption = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+                    if (options.indexOf(userChoices) > -1) {
+
+                    if (userChoices === computerChoices) {
+                        wins++;
+                        numGuess = 9;
+                        userChoices = [];
+                    }
+
+                    if (userChoices = computerChoices) {
+                        numGuess --;
+                        userChoices.push(userChoices);
+                    }
+
+                    if (numGuess === 0) {
+
+                    numGuess = 9;
+                    losses ++;
+                    userChoices = [];
+
+
+                    }
+
+                    var html = 
+                    "<h1> The Psychic Game </h1>" +
+                    "<p>Guess what letter I'm thinking of!</p>" +
+                    "<p>Wins: " + wins + "</p>" +
+                    "<p>Losses: " + losses + "</p>" +
+                    "<p>Guesses Left: " + numGuess + "</p>" +
+                    "<p>Your Guesses so far: " + userChoices.join(", ") + "</p>";
+
+                    document.querySelector("#game").innerHTML = html;
+
+
+                    }
+                    };
+
+                                    
+                                   
+
+                                    
+             </script>
+                            
+</body>
+</html>
